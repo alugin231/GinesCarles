@@ -1,6 +1,12 @@
-//package factura;
+package factura;
 
 import java.util.Arrays;
+
+/**
+ * Clase que se encarga de generar un objeto Factura mediante el identigicador del cliente ({@link #id_cliente}), el nombre del cliente({@link #nombre_cliente}) y una lista de objetos ({@link #lineas})
+ * @author Propietario
+ *
+ */
 
 public class Factura {
 	
@@ -9,6 +15,13 @@ public class Factura {
 	
 	public LineaFactura lineas[];	// lista de productos comprados	
 	
+	/**
+	 * Constructor de la clase factura
+	 * @param idCliente Identificador (codigo) del cliente, se asigna a  {@link #id_cliente}
+	 * @param nombreCliente Nombre del cliente, se asigna a {@link #nombre_cliente}
+	 * @param lineas lista de objetos de la clase {@link factura.LineaFactura}, se asigna a	{@link #lineas}
+	 * @see factura.LineaFactura
+	 */
 	public Factura(String idCliente, String nombreCliente, LineaFactura[] lineas) {
 		super();
 		id_cliente = idCliente;
@@ -17,7 +30,9 @@ public class Factura {
 	}
 
 	/**
-	 * Devuelve el precio total de la Factura, calculado a partir del precio de cada linea	 
+	 * Devuelve el precio total de la Factura, calculado a partir del precio de cada linea
+	 * @return precio  
+	 * @see factura.LineaFactura#getTotal
 	 */
 	public float getTotal(){
 		float precio = 0;
@@ -28,6 +43,10 @@ public class Factura {
 	}
 	
 	@Override
+	/**
+	 * Genera un texto con todos los parámetros de la factura y el precio total
+	 * @see #getTotal
+	 */
 	public String toString() {
 		return "Factura [" 
 		+ "id_cliente=" + id_cliente 		 
@@ -37,7 +56,12 @@ public class Factura {
 		+ "]";
 	}
 
-
+/**
+ * Genera 4 objetos de la clase LineaFactura y crea un objeto de la clase Factura con ellos
+ * @param args parametro sin uso
+ * @see factura.LineaFactura
+ * @see factura.Factura
+ */
 	public static void main(String[] args){
 		
 		// Crear una factura
