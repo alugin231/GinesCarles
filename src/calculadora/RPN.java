@@ -84,31 +84,33 @@ public class RPN {
 	 */
 	public void calcula(int i) {
 		double a, b;
+		b = pullPila( );
+		a = pullPila( );
 		if(commando.charAt(i) == '+') {
-			b = pullPila( );
-			a = pullPila( );
+			//b = pullPila( );
+			//a = pullPila( );
 			pushPila(a + b);
 		} else if(commando.charAt(i) == '-') {
-			b = pullPila( );
-			a = pullPila( );
+			//b = pullPila( );
+			//a = pullPila( );
 			pushPila(a - b);
 		} else if(commando.charAt(i) == '*') {
-			b = pullPila( );
-			a = pullPila( );
+			//b = pullPila( );
+			//a = pullPila( );
 			pushPila(a * b);
 		} else if(commando.charAt(i) == '/') {
-			b = pullPila( );
-			a = pullPila( );
+			//b = pullPila( );
+			//a = pullPila( );
 			pushPila(a / b);
 		}
 		else if(commando.charAt(i) == '^') {
-			b = pullPila( );
-			a = pullPila( );
+			//b = pullPila( );
+			//a = pullPila( );
 			pushPila(Math.pow(a, b));
 		}
 		else if(commando.charAt(i) == '%') {
-			b = pullPila( );
-			a = pullPila( );
+			//b = pullPila( );
+			//a = pullPila( );
 			pushPila(a%b);
 		} else if(commando.charAt(i) != ' ') {
 			throw new IllegalArgumentException( );
