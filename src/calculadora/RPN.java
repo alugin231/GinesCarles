@@ -49,11 +49,11 @@ public class RPN {
 	}
 	
 	/**
-	 * Método que lee la cadena introducida y hace los claculos
+	 * Método que lee la cadena introducida
 	 * @return val resultado de la operacion
 	 */
 	public double resultado( ) {
-		double a, b;
+		
 		int j;
 		for(int i = 0; i < commando.length( ); i++) {
 			// si es un digito
@@ -67,34 +67,8 @@ public class RPN {
 				// convertir a double y añadir a la pila
 				numero = Double.parseDouble(temp);
 				pushPila(numero);
-			} else if(commando.charAt(i) == '+') {
-				b = pullPila( );
-				a = pullPila( );
-				pushPila(a + b);
-			} else if(commando.charAt(i) == '-') {
-				b = pullPila( );
-				a = pullPila( );
-				pushPila(a - b);
-			} else if(commando.charAt(i) == '*') {
-				b = pullPila( );
-				a = pullPila( );
-				pushPila(a * b);
-			} else if(commando.charAt(i) == '/') {
-				b = pullPila( );
-				a = pullPila( );
-				pushPila(a / b);
-			}
-			else if(commando.charAt(i) == '^') {
-				b = pullPila( );
-				a = pullPila( );
-				pushPila(Math.pow(a, b));
-			}
-			else if(commando.charAt(i) == '%') {
-				b = pullPila( );
-				a = pullPila( );
-				pushPila(a%b);
-			} else if(commando.charAt(i) != ' ') {
-				throw new IllegalArgumentException( );
+			} else {
+				calcula(i);
 			}
 		}
 		double val = pullPila( );
@@ -102,6 +76,43 @@ public class RPN {
 			throw new IllegalArgumentException( );
 		}
 		return val;
+	}
+	
+	/**
+	 * Método que calcula la operación  y actualiza la pila con el resultado
+	 * @param i posición de la cadena donde está el simbolo de la operacion
+	 */
+	public void calcula(int i) {
+		double a, b;
+		if(commando.charAt(i) == '+') {
+			b = pullPila( );
+			a = pullPila( );
+			pushPila(a + b);
+		} else if(commando.charAt(i) == '-') {
+			b = pullPila( );
+			a = pullPila( );
+			pushPila(a - b);
+		} else if(commando.charAt(i) == '*') {
+			b = pullPila( );
+			a = pullPila( );
+			pushPila(a * b);
+		} else if(commando.charAt(i) == '/') {
+			b = pullPila( );
+			a = pullPila( );
+			pushPila(a / b);
+		}
+		else if(commando.charAt(i) == '^') {
+			b = pullPila( );
+			a = pullPila( );
+			pushPila(Math.pow(a, b));
+		}
+		else if(commando.charAt(i) == '%') {
+			b = pullPila( );
+			a = pullPila( );
+			pushPila(a%b);
+		} else if(commando.charAt(i) != ' ') {
+			throw new IllegalArgumentException( );
+		}
 	}
 	
 }
