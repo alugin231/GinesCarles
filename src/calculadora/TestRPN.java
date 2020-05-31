@@ -1,6 +1,12 @@
 package calculadora;
 import java.util.Scanner;
 
+/**
+ * Clase que recoje la cadena introducida y genera un objeto RPN con ellos y muestra el resultado de la opración
+ *  
+ *@see calculadora.RPN
+ *@see calculadora.RPN#resultado()
+ */
 public class TestRPN {
 /* metodo main */
 	public static void main(String args[]) {
