@@ -67,7 +67,7 @@ public class RPN {
 				// convertir a double y añadir a la pila
 				numero = Double.parseDouble(temp);
 				pushPila(numero);
-			} else {
+			} else if(commando.charAt(i) != ' ') {
 				calcula(i);
 			}
 		}
@@ -87,30 +87,16 @@ public class RPN {
 		b = pullPila( );
 		a = pullPila( );
 		if(commando.charAt(i) == '+') {
-			//b = pullPila( );
-			//a = pullPila( );
 			pushPila(a + b);
 		} else if(commando.charAt(i) == '-') {
-			//b = pullPila( );
-			//a = pullPila( );
 			pushPila(a - b);
 		} else if(commando.charAt(i) == '*') {
-			//b = pullPila( );
-			//a = pullPila( );
 			pushPila(a * b);
 		} else if(commando.charAt(i) == '/') {
-			//b = pullPila( );
-			//a = pullPila( );
 			pushPila(a / b);
-		}
-		else if(commando.charAt(i) == '^') {
-			//b = pullPila( );
-			//a = pullPila( );
+		} else if(commando.charAt(i) == '^') {
 			pushPila(Math.pow(a, b));
-		}
-		else if(commando.charAt(i) == '%') {
-			//b = pullPila( );
-			//a = pullPila( );
+		} else if(commando.charAt(i) == '%') {
 			pushPila(a%b);
 		} else if(commando.charAt(i) != ' ') {
 			throw new IllegalArgumentException( );
